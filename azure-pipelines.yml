@@ -13,7 +13,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'wthAcr'
-    repository: 'nodejs-ex'
+    repository: 'nodejs-ex-ado'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
@@ -26,4 +26,10 @@ steps:
   inputs:
     openshiftService: 'aro-jasondel'
     version: 'v3.11.0'
-    cmd: 'oc new-app wthacr.azurecr.io/wthacr.azurecr.io/nodejs-ex:local'
+    cmd: 'oc project jason-test'
+
+- task: oc-cmd@2
+  inputs:
+    openshiftService: 'aro-jasondel'
+    version: 'v3.11.0'
+    cmd: 'oc new-app wthacr.azurecr.io/wthacr.azurecr.io/nodejs-ex-ado'
