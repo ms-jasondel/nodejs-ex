@@ -12,6 +12,10 @@ pool:
 steps:
 - task: Docker@2
   inputs:
+    containerRegistry: 'redhat-registry'
+    command: 'login'
+- task: Docker@2
+  inputs:
     containerRegistry: 'wthAcr'
     repository: 'wthacr.azurecr.io/nodejs-ex'
     command: 'buildAndPush'
