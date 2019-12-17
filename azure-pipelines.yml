@@ -10,6 +10,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'wthAcr'
+    repository: 'wthacr.azurecr.io/nodejs-ex'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+
 - task: oc-setup@2
   inputs:
     openshiftService: 'aro-jasondel'
@@ -20,11 +27,3 @@ steps:
     openshiftService: 'aro-jasondel'
     version: 'v3.11.0'
     cmd: 'oc status'
-
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: npm install
-  displayName: 'npm install'
