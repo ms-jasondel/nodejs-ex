@@ -13,7 +13,7 @@ steps:
 - task: oc-cmd@2
   inputs:
     openshiftService: 'aro-jasondel'
-    version: '4.2'
+    version: '3.11'
     cmd: 'oc status'
 
 - task: NodeTool@0
