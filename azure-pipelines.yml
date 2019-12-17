@@ -36,5 +36,5 @@ steps:
   inputs:
     openshiftService: 'aro-jasondel'
     version: 'v3.11.0'
-    cmd: 'oc new-app --docker-image=https://wthacr.azurecr.io/nodejs-ex-ado:49'
+    cmd: 'oc new-app --docker-image=wthacr.azurecr.io/nodejs-ex-ado'
 
