@@ -11,6 +11,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: oc-cmd@2
+  inputs:
+    openshiftService: 'aro-jasondel'
+    version: '3.11'
+    cmd: 'oc get-status'
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
