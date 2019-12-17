@@ -10,6 +10,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: oc-setup@2
+  inputs:
+    openshiftService: 'aro-jasondel'
+    version: '3.11'
 - task: oc-cmd@2
   inputs:
     openshiftService: 'aro-jasondel'
